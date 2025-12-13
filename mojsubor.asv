@@ -1,0 +1,18 @@
+system = ss(Ap,Bp,Cp,Dp);
+
+sisotool(system(3,1))
+%%%%%%% prenos elevatoru na pitch rate
+
+%%  Ap = A podelni
+% controls 1.elevator
+% states 1.velocity
+% states 2.angle of attack
+% states 3.pitch
+% states 4.accel x
+% states 5. accel y
+
+%% As = A stranovy?
+% controls 1.aileron
+% controls 2. rudder
+% states 1. side slip
+% states 2.ro
