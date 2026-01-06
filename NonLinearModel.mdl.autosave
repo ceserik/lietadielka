@@ -2071,6 +2071,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_606.xml.rels
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
   <Relationship Id="system_749" Target="system_749.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
+  <Relationship Id="system_780" Target="system_780.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
 </Relationships>
 
 __MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_66.xml.rels
@@ -11079,7 +11080,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_606.xml
   </Block>
   <Block BlockType="Reference" Name="Degrees to&#xA;Radians" SID="718">
     <PortCounts in="1" out="1"/>
-    <P Name="Position">[110, 290, 140, 320]</P>
+    <P Name="Position">[55, 290, 85, 320]</P>
     <P Name="ZOrder">20</P>
     <P Name="LibraryVersion">12.0</P>
     <P Name="SourceBlock">simulink_extras/Transformations/Degrees to
@@ -11133,11 +11134,6 @@ Radians</P>
     <P Name="Position">[830, 210, 860, 240]</P>
     <P Name="ZOrder">9</P>
   </Block>
-  <Block BlockType="Integrator" Name="Integrator" SID="732">
-    <PortCounts in="1" out="1"/>
-    <P Name="Position">[225, 255, 255, 285]</P>
-    <P Name="ZOrder">27</P>
-  </Block>
   <Block BlockType="Mux" Name="Mux" SID="743">
     <PortCounts in="4" out="1"/>
     <P Name="Position">[315, 176, 320, 254]</P>
@@ -11156,30 +11152,17 @@ Radians</P>
     </PortProperties>
     <System Ref="system_749"/>
   </Block>
-  <Block BlockType="Sum" Name="Subtract1" SID="615">
+  <Block BlockType="SubSystem" Name="error calc" SID="780">
     <PortCounts in="2" out="1"/>
-    <P Name="Position">[175, 252, 205, 283]</P>
-    <P Name="ZOrder">7</P>
-    <P Name="IconShape">rectangular</P>
-    <P Name="Inputs">-+</P>
-    <PortProperties>
-      <Port Type="out" Index="1">
-        <P Name="Name">pitch error</P>
-      </Port>
-    </PortProperties>
+    <P Name="Position">[180, 244, 220, 286]</P>
+    <P Name="ZOrder">43</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_780"/>
   </Block>
   <Block BlockType="Outport" Name="Out1" SID="616">
     <P Name="Position">[920, 218, 950, 232]</P>
     <P Name="ZOrder">12</P>
   </Block>
-  <Line>
-    <P Name="Name">pitch</P>
-    <P Name="ZOrder">37</P>
-    <P Name="Labels">[0, 0]</P>
-    <P Name="Src">719#out:4</P>
-    <P Name="Points">[53, 0; 0, 15]</P>
-    <P Name="Dst">615#in:1</P>
-  </Line>
   <Line>
     <P Name="ZOrder">4</P>
     <P Name="Src">607#out:1</P>
@@ -11216,12 +11199,6 @@ Radians</P>
     <P Name="Dst">743#in:3</P>
   </Line>
   <Line>
-    <P Name="ZOrder">20</P>
-    <P Name="Src">718#out:1</P>
-    <P Name="Points">[10, 0; 0, -30]</P>
-    <P Name="Dst">615#in:2</P>
-  </Line>
-  <Line>
     <P Name="ZOrder">94</P>
     <P Name="Src">743#out:1</P>
     <P Name="Points">[18, 0]</P>
@@ -11234,28 +11211,6 @@ Radians</P>
       <P Name="ZOrder">98</P>
       <P Name="Points">[0, -255]</P>
       <P Name="Dst">749#in:2</P>
-    </Branch>
-  </Line>
-  <Line>
-    <P Name="Name">pitch error</P>
-    <P Name="ZOrder">38</P>
-    <P Name="Labels">[0, 0]</P>
-    <P Name="Src">615#out:1</P>
-    <P Name="Dst">732#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">45</P>
-    <P Name="Src">732#out:1</P>
-    <P Name="Points">[20, 0]</P>
-    <Branch>
-      <P Name="ZOrder">75</P>
-      <P Name="Points">[0, -25]</P>
-      <P Name="Dst">743#in:4</P>
-    </Branch>
-    <Branch>
-      <P Name="ZOrder">40</P>
-      <P Name="Points">[0, 15]</P>
-      <P Name="Dst">730#in:1</P>
     </Branch>
   </Line>
   <Line>
@@ -11279,6 +11234,35 @@ Radians</P>
     <P Name="Src">719#out:5</P>
     <P Name="Points">[24, 0; 0, -275]</P>
     <P Name="Dst">749#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">128</P>
+    <P Name="Src">780#out:1</P>
+    <P Name="Points">[68, 0]</P>
+    <Branch>
+      <P Name="ZOrder">129</P>
+      <P Name="Points">[0, -20]</P>
+      <P Name="Dst">743#in:4</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">120</P>
+      <P Name="Points">[0, 20]</P>
+      <P Name="Dst">730#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">pitch</P>
+    <P Name="ZOrder">126</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">719#out:4</P>
+    <P Name="Points">[70, 0; 0, 10]</P>
+    <P Name="Dst">780#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">127</P>
+    <P Name="Src">718#out:1</P>
+    <P Name="Points">[3, 0; 0, -30]</P>
+    <P Name="Dst">780#in:2</P>
   </Line>
 </System>
 
@@ -12952,6 +12936,99 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_764.xml
   </Line>
 </System>
 
+__MWOPC_PART_BEGIN__ /simulink/systems/system_780.xml
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[0, 0, 0, 0]</P>
+  <P Name="PaperType">usletter</P>
+  <P Name="PaperUnits">inches</P>
+  <P Name="TiledPaperMargins">[0.500000, 0.500000, 0.500000, 0.500000]</P>
+  <P Name="ZoomFactor">200</P>
+  <Block BlockType="Inport" Name="pitch" SID="781">
+    <P Name="Position">[20, 23, 50, 37]</P>
+    <P Name="ZOrder">43</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">pitch</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="In2" SID="782">
+    <P Name="Position">[45, 83, 75, 97]</P>
+    <P Name="ZOrder">44</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="779">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[255, 22, 285, 53]</P>
+    <P Name="ZOrder">42</P>
+    <P Name="IconShape">rectangular</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrator" SID="732">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[185, 55, 215, 85]</P>
+    <P Name="ZOrder">27</P>
+    <P Name="LimitOutput">on</P>
+    <P Name="UpperSaturationLimit">0.01</P>
+    <P Name="LowerSaturationLimit">-0.01</P>
+  </Block>
+  <Block BlockType="Sum" Name="Subtract1" SID="615">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[100, 22, 130, 53]</P>
+    <P Name="ZOrder">7</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">-+</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">pitch error</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="783">
+    <P Name="Position">[305, 33, 335, 47]</P>
+    <P Name="ZOrder">45</P>
+  </Block>
+  <Line>
+    <P Name="Name">pitch error</P>
+    <P Name="ZOrder">111</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">615#out:1</P>
+    <P Name="Points">[33, 0]</P>
+    <Branch>
+      <P Name="ZOrder">125</P>
+      <P Name="Points">[37, 0; 0, -10]</P>
+      <P Name="Dst">779#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">124</P>
+      <P Name="Points">[0, 30]</P>
+      <P Name="Dst">732#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">128</P>
+    <P Name="Src">779#out:1</P>
+    <P Name="Dst">783#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">126</P>
+    <P Name="Src">781#out:1</P>
+    <P Name="Dst">615#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">123</P>
+    <P Name="Src">732#out:1</P>
+    <P Name="Points">[15, 0; 0, -25]</P>
+    <P Name="Dst">779#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">127</P>
+    <P Name="Src">782#out:1</P>
+    <P Name="Points">[5, 0]</P>
+    <P Name="Dst">615#in:2</P>
+  </Line>
+</System>
+
 __MWOPC_PART_BEGIN__ /simulink/systems/system_96.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
@@ -13150,7 +13227,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
   <P Name="Open">on</P>
   <P Name="ZoomFactor">132</P>
   <P Name="ReportName">simulink-default.rpt</P>
-  <P Name="SIDHighWatermark">778</P>
+  <P Name="SIDHighWatermark">783</P>
   <Block BlockType="SubSystem" Name="Controls" SID="504">
     <PortCounts in="3" out="1"/>
     <P Name="Position">[55, 117, 157, 219]</P>
@@ -13433,14 +13510,14 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="SceneRectInView" Class="double">[-84.2816220238094, -76.228571428571385, 303.0, 224.0]</P>
         </Object>
         <Object ObjectID="11">
-          <P Name="IsActive" Class="logical">1</P>
+          <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">1</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
           <P Name="LoadSaveID" Class="char">553</P>
           <P Name="Extents" Class="double">[1882.0, 593.0]</P>
           <P Name="ZoomFactor" Class="double">1.5</P>
-          <P Name="Offset" Class="double">[-50.540812541742923, -224.52914493112684]</P>
-          <P Name="SceneRectInView" Class="double">[-50.540812541742923, -224.52914493112684, 1254.6666666666667, 395.33333333333331]</P>
+          <P Name="Offset" Class="double">[-56.540812541742866, -190.66247826446016]</P>
+          <P Name="SceneRectInView" Class="double">[-56.540812541742866, -190.66247826446016, 1254.6666666666667, 395.33333333333331]</P>
         </Object>
         <Object ObjectID="12">
           <P Name="IsActive" Class="logical">0</P>
@@ -13463,14 +13540,14 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="SceneRectInView" Class="double">[-337.70563838874796, -102.76724564065189, 1254.6666666666667, 395.33333333333331]</P>
         </Object>
         <Object ObjectID="14">
-          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsActive" Class="logical">1</P>
           <P Name="IsTabbed" Class="logical">1</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
           <P Name="LoadSaveID" Class="char">606</P>
           <P Name="Extents" Class="double">[1882.0, 593.0]</P>
           <P Name="ZoomFactor" Class="double">1.5</P>
-          <P Name="Offset" Class="double">[-111.03663617836128, -95.952866799524514]</P>
-          <P Name="SceneRectInView" Class="double">[-111.03663617836128, -95.952866799524514, 1254.6666666666667, 395.33333333333331]</P>
+          <P Name="Offset" Class="double">[-217.82367458002358, 58.341117389447248]</P>
+          <P Name="SceneRectInView" Class="double">[-217.82367458002358, 58.341117389447248, 1254.6666666666667, 395.33333333333331]</P>
         </Object>
         <Object ObjectID="15">
           <P Name="IsActive" Class="logical">0</P>
