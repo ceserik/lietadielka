@@ -1,11 +1,10 @@
 %3 affine comvination of 3 LQR points
 clear
-Q = [ 0.1 0 0 0; %speed 
-      0 0.7 0 0; %angle of attack 
-      0 0 0.05 0; % pitch rate 
-      0 0 0 0.05]; % pitch 
+Q = [ 0.0 0 0 0; %speed 
+      0 0.1 0 0; %angle of attack 
+      0 0   0.001 0; % pitch rate 
+      0 0 0 20]; % pitch 
 R = 200 ;
-
 rychlosti = [];
 vysky = [];
 Gainy = [];
