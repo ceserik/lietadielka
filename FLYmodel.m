@@ -2,7 +2,7 @@
 % Initialization script 
 % Pavel Hospodar, CVUT, FEL 2010
 
-clc
+%clc
 %close all
 %clear all
 
@@ -33,6 +33,7 @@ Tsim = plane.Tsim;
 % lateral state-space model
 [As,Bs,Cs,Ds] = latMotion(plane.v0,plane.h,plane.m,plane.Jxx,...
     plane.Jyy,plane.Jxy,alpha_init,pitch_init);
+
 %figure(1)
 % scatter(real(eig(Ap)),imag(eig(Ap)))
 % hold on
