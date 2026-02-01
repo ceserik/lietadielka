@@ -8,7 +8,7 @@ R = 200 ;
 rychlosti = [];
 vysky = [];
 Gainy = [];
-for i = 1:3
+for i = 1:1
     FLYmodel
     longK = lqr(podelny_system,Q,R);
 
