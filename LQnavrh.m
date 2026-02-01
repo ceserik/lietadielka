@@ -1,4 +1,4 @@
-%3 affine comvination of 3 LQR points
+ %3 affine comvination of 3 LQR points
 clear
 Q = [ 0.0 0 0 0; %speed 
       0 0.1 0 0; %angle of attack 
